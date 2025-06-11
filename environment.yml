@@ -1,0 +1,13 @@
+name: deep_learning_project
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - Pillow==10.1.0
+      - torch==2.6.0
+      - torchvision==0.21.0
+      - opencv-python
+      - matplotlib
+      - RPi.GPIO==0.7.1
