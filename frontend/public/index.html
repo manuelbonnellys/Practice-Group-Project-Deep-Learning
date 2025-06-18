@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Unlock System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+      body { font-family: 'Segoe UI', Arial, sans-serif; background: #f7f7f7; margin: 0; }
+      .container { max-width: 400px; margin: 40px auto; background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); padding: 32px 24px; text-align: center; position: relative; overflow: hidden; }
+      button { background: #1976d2; color: #fff; border: none; border-radius: 4px; padding: 10px 20px; font-size: 1rem; cursor: pointer; margin: 8px 0; transition: background 0.2s; }
+      button:disabled { background: #aaa; cursor: not-allowed; }
+      button:hover:not(:disabled) { background: #1251a3; }
+      input[type="file"], input[type="text"] { margin: 8px 0; }
+      label { margin-right: 8px; }
+      #video, #enroll-video { margin: 12px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+      .hidden { display: none; }
+      .fade { opacity: 0; transition: opacity 0.4s; }
+      .fade.show { opacity: 1; }
+      .success-icon { color: #43a047; font-size: 3rem; margin-bottom: 12px; }
+      .fail-icon { color: #e53935; font-size: 3rem; margin-bottom: 12px; }
+      .page { display: none; }
+      .page.active { display: block; animation: fadeIn 0.5s; }
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      .subtitle { color: #666; font-size: 1.1rem; margin-bottom: 18px; }
+      .enroll-link { display: block; margin-top: 32px; color: #1976d2; text-decoration: underline; cursor: pointer; font-size: 1rem; }
+      .enroll-link:hover { color: #1251a3; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="page-unlock" class="page active"></div>
+      <div id="page-enroll" class="page"></div>
+      <div id="page-success" class="page">
+        <div class="success-icon"><i class="fas fa-unlock"></i></div>
+        <h2>Access Granted</h2>
+        <div class="subtitle" id="success-user"></div>
+        <button onclick="showUnlock()">Back to Unlock</button>
+      </div>
+      <div id="page-fail" class="page">
+        <div class="fail-icon"><i class="fas fa-lock"></i></div>
+        <h2>Access Denied</h2>
+        <div class="subtitle">Face not recognized. Please try again.</div>
+        <button onclick="showUnlock()">Try Again</button>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
