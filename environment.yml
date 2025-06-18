@@ -4,6 +4,7 @@ channels:
 dependencies:
   - python=3.11
   - pip
+  - numpy<2
   - pip:
       - Pillow==10.1.0
       - torch==2.6.0
