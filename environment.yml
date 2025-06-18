@@ -11,3 +11,4 @@ dependencies:
       - opencv-python
       - matplotlib
       - RPi.GPIO==0.7.1
+      - facenet_pytorch
